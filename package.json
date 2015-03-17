@@ -1,0 +1,22 @@
+{
+  "name": "wordnet-visualisation",
+  "version": "1.0.0",
+  "description": "A visualisation of the Princeton WordNet database",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wordnet",
+    "visualisation",
+    "dictionary",
+    "natural",
+    "language"
+  ],
+  "author": "Mateo Gianolio",
+  "license": "MIT",
+  "dependencies": {
+    "node-wordnet": "^0.1.5",
+    "wndb-with-exceptions": "^3.0.1"
+  }
+}
