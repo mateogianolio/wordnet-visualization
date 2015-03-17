@@ -38,8 +38,8 @@
           glossary: result.gloss,
           type: result.pos,
           position: {
-            x: Math.round(radius * Math.cos(angle)),
-            y: Math.round(radius * Math.sin(angle))
+            x: (radius * Math.cos(angle)),
+            y: (radius * Math.sin(angle))
           },
           children: []
         };
