@@ -17,13 +17,9 @@
   });
   
   function respond(request, response, next) {
-    var wordnet = new WordNet();
-    
-    var width = 800,
-        height = 800,
-        word = request.params.search;
-
-    var tree = [];
+    var wordnet = new WordNet(),
+        word = request.params.search,
+        tree = [];
 
     wordnet.lookup(word, function(results) {
       if(!results.length)
@@ -32,7 +28,7 @@
       var branch,
           leaf,
           increment = 2 * Math.PI / results.length,
-          radius = Math.max(width, height) / 3;
+          radius = 1 / 2;
 
       results.forEach(function(result, i) {
         var angle = i * increment;
