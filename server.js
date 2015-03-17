@@ -3,6 +3,14 @@
       restify = require('restify'),
       server = restify.createServer();
   
+  server.use(
+    function crossOrigin(request, response, next) {
+      response.header('Access-Control-Allow-Origin', '*');
+      response.header('Access-Control-Allow-Headers', 'X-Requested-With');
+      
+      return next();
+    }
+  );
   server.get('/:search', respond);
   server.listen((process.env.PORT || 5000), function() {
     log(server.name, 'listening at', server.url);
