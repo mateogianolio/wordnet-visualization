@@ -4,7 +4,7 @@
       server = restify.createServer();
   
   server.get('/:search', respond);
-  server.listen(18320, function() {
+  server.listen((process.env.PORT || 5000), function() {
     log(server.name, 'listening at', server.url);
   });
   
