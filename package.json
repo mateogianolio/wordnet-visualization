@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "node-wordnet": "^0.1.5",
+    "restify": "^3.0.0",
     "wndb-with-exceptions": "^3.0.1"
   }
 }
