@@ -24,13 +24,19 @@ $(function() {
     clear();
     
     var source = $('.source'),
-        element;
+        element,
+        glossary;
     
     source.addClass('rotate');
     $.get(url + query, function(nodes) {
       setTimeout(function() { source.removeClass('rotate') }, 300);
       nodes.forEach(function(node, i) {
         element = document.createElement('span');
+        
+        glossary = node.glossary
+          .split(';') // text after ';' is example(s)
+          .shift(); // skip example (for now)
+        
         $(element)
           .css({
             position: 'absolute',
@@ -40,7 +46,8 @@ $(function() {
           .addClass('node')
           .addClass(node.type)
           .addClass('' + i)
-          .html(node.word.split('_').join(' '));
+          .html(node.word.split('_').join(' '))
+          .attr('data-title', glossary);
 
         $('.container').append(element);
 
@@ -51,8 +58,8 @@ $(function() {
           x: (width / 2 - element.width() / 2),
           y: (height / 2 - element.height() / 2)
         }, target = {
-          x: !(i % 2) ? ((width / 1.5) * node.position.x) : (width * node.position.x),
-          y: !(i % 2) ? ((height / 1.5) * node.position.y) : (height * node.position.y)
+          x: !(i % 2) ? ((width / 1.3) * node.position.x) : (width * node.position.x),
+          y: !(i % 2) ? ((height / 1.3) * node.position.y) : (height * node.position.y)
         };
 
         element
