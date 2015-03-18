@@ -12,8 +12,8 @@ input {
 
 .container {
   position: relative;
-  width: 960px;
-  height: 960px;
+  width: 800px;
+  height: 600px;
   margin: 10% auto;
   overflow: visible;
 }
@@ -25,8 +25,8 @@ input {
 }
 
 .source {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   position: absolute;
   border: none;
   border-radius: 100%;
@@ -37,16 +37,32 @@ input {
 }
 
 .node {
-  border-left: .5em solid transparent;
+  border-left: .25em solid transparent;
   background: #F5F5F5;
   border-radius: 0 .25em .25em 0;
   white-space: nowrap;
-  transition: background-color .2s, color .2s;
+  transition: background-color .2s, color .2s, -webkit-transform .2s;
 }
 
 .node:hover {
   background: #212121;
   color: #fff;
+  z-index: 999;
+  cursor: pointer;
+  -webkit-transform: scale(1.4, 1.4) !important;
+  -ms-transform: scale(1.4, 1.4) !important;
+  transform: scale(1.4, 1.4) !important;
+}
+
+.node:hover::after {
+  position: absolute;
+  left: 0;
+  margin-top: 2em;
+  padding: .25em 1.4em;
+  content: attr(data-title);
+  word-wrap: break-word;
+  font-size: .75rem;
+  background: #212121;
 }
 
 .rotate {
