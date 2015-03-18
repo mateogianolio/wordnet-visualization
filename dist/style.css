@@ -1,0 +1,77 @@
+* {
+  font: 100%/1.5 'Droid Serif', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+input {
+  outline: 0;
+}
+
+.container {
+  position: relative;
+  width: 960px;
+  height: 960px;
+  margin: 10% auto;
+  overflow: visible;
+}
+
+.source, .node {
+  text-align: center;
+  padding: .25em 1em;
+  font-size: 1rem;
+}
+
+.source {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  border: none;
+  border-radius: 100%;
+  font-size: 1.25rem;
+  background: #F5F5F5;
+  transition: background .4s;
+  z-index: 999;
+}
+
+.node {
+  border-left: .5em solid transparent;
+  background: #F5F5F5;
+  border-radius: 0 .25em .25em 0;
+  white-space: nowrap;
+  transition: background-color .2s, color .2s;
+}
+
+.node:hover {
+  background: #212121;
+  color: #fff;
+}
+
+.rotate {
+  -webkit-animation: rotate .5s linear infinite;
+  -moz-animation: rotate .5s linear infinite;
+  animation: rotate .5s linear infinite;
+}
+
+@-webkit-keyframes rotate {
+  from { -webkit-transform: rotate(0deg) }
+  to { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes rotate {
+  from { -moz-transform: rotate(0deg) }
+  to { -moz-transform: rotate(360deg) }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+.a { border-color: #FFEB3B } /* adjective */
+.n { border-color: #29B6F6 } /* noun */
+.s { border-color: #FFEB3B } /* adjective */
+.v { border-color: #8BC34A } /* verb */
+.r { border-color: #26A69A } /* adverb */
