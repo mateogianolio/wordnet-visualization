@@ -6,40 +6,67 @@
   -webkit-box-sizing: border-box;
 }
 
+a {
+  padding: .1em 0;
+  color: #BDBDBD;
+  text-decoration: none;
+  border-bottom: 1px solid #E0E0E0;
+}
+
 input {
   outline: 0;
+  padding: 0;
 }
 
 .container {
+  padding: 0;
   position: relative;
-  width: 800px;
+  width: 960px;
   height: 600px;
-  margin: 10% auto;
+  margin: 5em auto;
   overflow: visible;
+}
+
+.description, .footer {
+  width: 600px;
+  margin: 2em auto;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.legend {
+  display: inline-block;
+  padding: .1em .5em;
+  margin: .5em .5em 0 0;
+  background: #F5F5F5;
+  border-radius: 0 .25em 0 0;
+  border-left: .5em solid transparent;
 }
 
 .source, .node {
   text-align: center;
-  padding: .25em 1em;
+  padding: .1em .5em;
   font-size: 1rem;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .source {
   width: 250px;
-  height: 250px;
+  height: 50px;
   position: absolute;
   border: none;
-  border-radius: 100%;
   font-size: 1.25rem;
-  background: #F5F5F5;
+  background: #212121;
+  color: #FFFFFF;
   transition: background .4s;
   z-index: 999;
 }
 
 .node {
-  border-left: .25em solid transparent;
+  border-left: .5em solid transparent;
   background: #F5F5F5;
-  border-radius: 0 .25em .25em 0;
+  border-radius: 0 .25em 0 0;
   white-space: nowrap;
   transition: background-color .2s, color .2s, -webkit-transform .2s;
 }
@@ -58,11 +85,26 @@ input {
   position: absolute;
   left: 0;
   margin-top: 2em;
-  padding: .25em 1.4em;
-  content: attr(data-title);
-  word-wrap: break-word;
+  padding: .25em .75em;
+  content: attr(data-glossary);
   font-size: .75rem;
   background: #212121;
+}
+
+.node.right:hover::after {
+  right: 0;
+}
+
+.synonym {
+  display: none;
+  text-align: left;
+}
+
+.node:hover .synonym {
+  display: inline-block;
+  padding: .25em .75em;
+  color: #212121;
+  font-size: .75rem;
 }
 
 .rotate {
@@ -91,3 +133,9 @@ input {
 .s { border-color: #FFEB3B } /* adjective */
 .v { border-color: #8BC34A } /* verb */
 .r { border-color: #26A69A } /* adverb */
+
+.synonym.a { background: #FFEB3B }
+.synonym.n { background: #29B6F6 }
+.synonym.s { background: #FFEB3B }
+.synonym.v { background: #8BC34A }
+.synonym.r { background: #26A69A }
