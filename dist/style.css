@@ -11,6 +11,12 @@ a {
   color: #BDBDBD;
   text-decoration: none;
   border-bottom: 1px solid #E0E0E0;
+  transition: color .2s, border-color .2s;
+}
+
+a:hover {
+  color: #000000;
+  border-bottom: 1px solid #000000;
 }
 
 input {
