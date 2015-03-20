@@ -5,7 +5,6 @@ $(function() {
 
   var source = $('.source');
   
-  console.log(source.width());
   source.css({
     left: (width / 2) - (source.width() / 2),
     top: (height / 2) - (source.height() / 2)
@@ -92,7 +91,6 @@ $(function() {
           $(leaf)
             .css({
               position: 'absolute',
-              left: 0,
               top: y,
             })
             .addClass('synonym')
@@ -113,8 +111,11 @@ $(function() {
             top: '+=' + target.y
           }, {
             duration: 500
-          });
+          })
+          .addClass(target.x > 0 ? 'right' : 'left');
       });
+    }).fail(function() {
+      source.removeClass('rotate');
     });
   }
   
