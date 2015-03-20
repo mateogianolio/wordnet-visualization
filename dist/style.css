@@ -18,6 +18,11 @@ input {
   padding: 0;
 }
 
+::-webkit-input-placeholder { color: #FFFFFF }
+:-moz-placeholder { color: #FFFFFF; opacity: 1 }
+::-moz-placeholder { color: #FFFFFF; opacity: 1 }
+:-ms-input-placeholder { color: #FFFFFF }
+
 .container {
   padding: 0;
   position: relative;
@@ -61,6 +66,7 @@ input {
   color: #FFFFFF;
   transition: background .4s;
   z-index: 999;
+  border-radius: .5em;
 }
 
 .node {
@@ -81,7 +87,7 @@ input {
   transform: scale(1.4, 1.4) !important;
 }
 
-.node:hover::after {
+.node.left:hover::after {
   position: absolute;
   left: 0;
   margin-top: 2em;
@@ -92,12 +98,28 @@ input {
 }
 
 .node.right:hover::after {
+  position: absolute;
   right: 0;
+  margin-top: 2em;
+  padding: .25em .75em;
+  content: attr(data-glossary);
+  text-align: center;
+  font-size: .75rem;
+  background: #212121;
+}
+
+.node.left .synonym {
+  left: 0;
+  text-align: left;
+}
+
+.node.right .synonym {
+  right: 0;
+  text-align: right;
 }
 
 .synonym {
   display: none;
-  text-align: left;
 }
 
 .node:hover .synonym {
