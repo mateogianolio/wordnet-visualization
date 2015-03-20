@@ -39,7 +39,12 @@ $(function() {
         word = node.word.split('_').join(' ');
         glossary = node.glossary
           .split(';') // text after ';' is example(s)
-          .shift(); // skip example (for now)
+          .shift() // skip example (for now)
+          .split(' ') // split into words
+          .map(function(word, index) {
+            return (!(index % 8) && index > 1) ? word + '<br>' : word;
+          })
+          .join(' ');
         angle = Math.atan(node.position.y / node.position.x);
         
         $(element)
@@ -52,7 +57,6 @@ $(function() {
           .addClass(node.type)
           .addClass('' + i)
           .html(word)
-          .attr('data-glossary', glossary)
           .attr('data-word', word)
           .click(function() {
             var query = $(this).attr('data-word');
@@ -60,12 +64,19 @@ $(function() {
             search(query);
           });
 
+        var gloss = document.createElement('div');
+        
+        $(gloss)
+          .css('display', 'none')
+          .addClass('glossary')
+          .html(glossary);
+        
+        $(element).append(gloss);
         $('.container').append(element);
         
-        
-
         // grab element again when it has been given width
         element = $('.' + i);
+        gloss = element.find('.glossary');
         
         var center = {
           x: (width / 2 - element.width() / 2),
@@ -76,9 +87,8 @@ $(function() {
         };
         
         var leaf,
-            increment,
             j, y;
-        
+          
         // remove first synonym
         node.children.shift();
         
@@ -86,18 +96,18 @@ $(function() {
           child = node.children[j];
           leaf = document.createElement('span');
           
-          y = 48 + 20 * j;
+          y = element.height() + 20 * j;
           
           $(leaf)
             .css({
               position: 'absolute',
-              top: y,
+              bottom: -y
             })
             .addClass('synonym')
             .addClass(node.type)
             .html(child.word.split('_').join(' '));
           
-          $(element).append(leaf);
+          $(gloss).append(leaf);
         }
 
         element

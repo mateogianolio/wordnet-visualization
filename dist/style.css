@@ -6,6 +6,8 @@
   -webkit-box-sizing: border-box;
 }
 
+br { margin: 0; padding: 0 }
+
 a {
   padding: .1em 0;
   color: #BDBDBD;
@@ -93,23 +95,24 @@ input {
   transform: scale(1.4, 1.4) !important;
 }
 
-.node.left:hover::after {
+.node.left:hover .glossary {
+  display: block !important;
   position: absolute;
   left: 0;
-  margin-top: 2em;
   padding: .25em .75em;
-  content: attr(data-glossary);
+  border-top-right-radius: .5em;
+  text-align: left;
   font-size: .75rem;
   background: #212121;
 }
 
-.node.right:hover::after {
+.node.right:hover .glossary {
+  display: block !important;
   position: absolute;
   right: 0;
-  margin-top: 2em;
   padding: .25em .75em;
-  content: attr(data-glossary);
-  text-align: center;
+  border-top-left-radius: .5em;
+  text-align: right;
   font-size: .75rem;
   background: #212121;
 }
