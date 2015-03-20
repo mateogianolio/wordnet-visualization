@@ -17,6 +17,15 @@
     </script>
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=907082569344359&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
     <div class="description">
       An interactive visualization of the Princeton <a href="http://wordnet.princeton.edu">WordNet</a> database.<br>
       <br>
@@ -32,7 +41,10 @@
       <input class="source" type="text" placeholder="Word to search for..." autofocus>
     </div>
     <div class="footer">
-      <a href="https://github.com/mateogianolio/wordnet-visualization">View source.</a>
+      <a href="https://github.com/mateogianolio/wordnet-visualization">View source.</a><br>
+      <br>
+      <div class="fb-like" data-href="http://mateogianolio.github.io/wordnet-visualization/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="mateogianolio">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
     </div>
   </body>
 </html>
