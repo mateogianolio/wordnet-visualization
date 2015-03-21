@@ -26,7 +26,6 @@
         return next(new restify.InvaildArgumentError('\'' + word + '\' not found'));
 
       var branch,
-          leaf,
           increment = 2 * Math.PI / results.length,
           radius = 1 / 2;
 

@@ -133,6 +133,13 @@ input {
   padding: .25em .75em;
   color: #212121;
   font-size: .75rem;
+  transition: background-color .2s, color .2s;
+  border: none;
+}
+
+.node:hover .synonym:hover {
+  color: #FFFFFF;
+  background: #000000;
 }
 
 .rotate {
