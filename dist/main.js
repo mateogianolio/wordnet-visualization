@@ -42,7 +42,7 @@ $(function() {
           .shift() // skip example (for now)
           .split(' ') // split into words
           .map(function(word, index) {
-            return (!(index % 8) && index > 1) ? word + '<br>' : word;
+            return (!(index % 10) && index > 1) ? word + '<br>' : word;
           })
           .join(' ');
         angle = Math.atan(node.position.y / node.position.x);

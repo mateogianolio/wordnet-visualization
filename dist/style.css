@@ -26,10 +26,10 @@ input {
   padding: 0;
 }
 
-::-webkit-input-placeholder { color: #FFFFFF }
-:-moz-placeholder { color: #FFFFFF; opacity: 1 }
-::-moz-placeholder { color: #FFFFFF; opacity: 1 }
-:-ms-input-placeholder { color: #FFFFFF }
+::-webkit-input-placeholder { color: #BDBDBD }
+:-moz-placeholder { color: #BDBDBD; opacity: 1 }
+::-moz-placeholder { color: #BDBDBD; opacity: 1 }
+:-ms-input-placeholder { color: #BDBDBD }
 
 .container {
   padding: 0;
@@ -62,25 +62,24 @@ input {
   font-size: 1rem;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 .source {
   width: 250px;
-  height: 50px;
+  height: 40px;
   position: absolute;
   border: none;
   font-size: 1.25rem;
-  background: #212121;
-  color: #FFFFFF;
+  background: #F5F5F5;
+  color: #000000;
   transition: background .4s;
   z-index: 999;
-  border-radius: .5em;
 }
 
 .node {
   border-left: .5em solid transparent;
   background: #F5F5F5;
-  border-radius: 0 .25em 0 0;
   white-space: nowrap;
   transition: background-color .2s, color .2s, -webkit-transform .2s;
 }
@@ -100,7 +99,6 @@ input {
   position: absolute;
   left: 0;
   padding: .25em .75em;
-  border-top-right-radius: .5em;
   text-align: left;
   font-size: .75rem;
   background: #212121;
@@ -111,7 +109,6 @@ input {
   position: absolute;
   right: 0;
   padding: .25em .75em;
-  border-top-left-radius: .5em;
   text-align: right;
   font-size: .75rem;
   background: #212121;
