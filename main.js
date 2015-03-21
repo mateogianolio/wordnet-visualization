@@ -56,13 +56,15 @@ $(function() {
           .addClass('node')
           .addClass(node.type)
           .addClass('' + i)
-          .html(word)
-          .attr('data-word', word)
-          .click(function() {
-            var query = $(this).attr('data-word');
-            source.val(query);
-            search(query);
-          });
+          .append(
+            $(document.createElement('div'))
+              .html(word)
+              .click(function() {
+                var query = $(this).text();
+                source.val(query);
+                search(query);
+            })
+          );
 
         var gloss = document.createElement('div');
         
@@ -96,7 +98,7 @@ $(function() {
           child = node.children[j];
           leaf = document.createElement('span');
           
-          y = element.height() + 20 * j;
+          y = element.height() + 23 * j;
           
           $(leaf)
             .css({
@@ -105,7 +107,12 @@ $(function() {
             })
             .addClass('synonym')
             .addClass(node.type)
-            .html(child.word.split('_').join(' '));
+            .html(child.word.split('_').join(' '))
+            .click(function() {
+              var query = $(this).text();
+              source.val(query);
+              search(query);
+            });
           
           $(gloss).append(leaf);
         }
