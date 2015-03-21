@@ -44,24 +44,12 @@
           children: []
         };
 
-        if(result.synonyms.length > 1) {
-          var child_increment = 2 * Math.PI / result.synonyms.length,
-              child_radius = radius / 4;
-
+        if(result.synonyms.length > 1)
           result.synonyms.forEach(function(synonym, j) {
-            var angle = j * child_increment;
-
-            leaf = {
-              word: synonym,
-              position: {
-                x: branch.position.x + Math.round(child_radius * Math.cos(angle)),
-                y: branch.position.y + Math.round(child_radius * Math.sin(angle))
-              }
-            };
-
-            branch.children.push(leaf);
+            branch.children.push({
+              word: synonym
+            });
           });
-        }
 
         tree.push(branch);
       });
